@@ -1,52 +1,79 @@
 import 'package:flutter/material.dart';
+import '../business/models/GenreSelection.dart';
 
-class LoginPage extends StatelessWidget{
+class FormulairePatientPage extends StatefulWidget{
+  @override
+  FormulairePatientState createState() => FormulairePatientState();
 
-  var emailCtrl=TextEditingController();
+  }
+
+class FormulairePatientState extends State<FormulairePatientPage>{
+
+  var nomCtrl=TextEditingController();
+
+  bool isHommeState = false;
+  bool isFemmeState = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(height: 40,),
-              Text("Login", style:TextStyle(color: Colors.blue, fontSize: 30),),
+      appBar: AppBar(
+        title: Text("Enregistrement Patient"),
+        centerTitle: true,
+        backgroundColor : Color(0xFF19103E),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.more_vert),
+            onPressed: (){},
+          )
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 32),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(width: double.infinity,),
+            Icon(Icons.person_2, size:100,),
 
-              SizedBox(height: 20,),
-              Text("Welcome", style:TextStyle(color: Colors.blue, fontSize: 20),),
+            SizedBox(height: 30,),
+            Text("Nom Complet",),
 
-              SizedBox(height: 20,),
-              Text("Plateforme de suivi des etudiants pour une promotion",
-                style:TextStyle(color: Colors.blue, fontSize: 20),),
+            SizedBox(height: 50,),
+            TextField(
+                controller: nomCtrl,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                )
+            ),
 
-              SizedBox(height: 20,),
-              Text("Email or Mobile Number", style:TextStyle(color: Colors.black, fontSize: 20),),
+            SizedBox(height: 30,),
+            Text("Genre",),
 
-              SizedBox(height: 30,),
-              TextField(
-                  controller: emailCtrl,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                  )
+            SizedBox(height: 50,),
+            GenreSelection(
+                isHomme: isHommeState,
+                isFemme: isFemmeState,
+                onHommeChanged: (bool? valeur){
+                  setState((){
+                    isHommeState = valeur ?? false;
+                  });
+                },
+                onFemmeChanged: (bool? valeur){
+                  setState((){
+                    isFemmeState = valeur ?? false;
+                  });
+                },
               ),
 
-              SizedBox(height: 40,),
-              SizedBox(width: 300,
-                  child: ElevatedButton(
-                      style:ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
-                          foregroundColor: Colors.white),
-                      onPressed: () {},
-                      child: Text("Valider")))
-
-            ],
-          ),
-        )
-
+            SizedBox(height: 30,),
+            ElevatedButton(
+              child: Text("Creer"),
+              onPressed: (){},)
+          ],
+        ),
+      )
     );
   }
   
