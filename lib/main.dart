@@ -4,6 +4,7 @@ import 'package:visitor_app/pages/WelcomePage.dart';
 
 void main(){
   runApp(MonApp());
+  
 }
 
 class MonApp extends StatelessWidget{
