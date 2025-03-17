@@ -5,7 +5,7 @@ class FormulairePatientPage extends StatefulWidget{
   @override
   FormulairePatientState createState() => FormulairePatientState();
 
-  }
+}
 
 class FormulairePatientState extends State<FormulairePatientPage>{
 
@@ -17,42 +17,42 @@ class FormulairePatientState extends State<FormulairePatientPage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Enregistrement Patient"),
-        centerTitle: true,
-        backgroundColor : Color(0xFF19103E),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.more_vert),
-            onPressed: (){},
-          )
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 32),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(width: double.infinity,),
-            Icon(Icons.person_2, size:100,),
+        appBar: AppBar(
+          title: Text("Enregistrement Patient", style: TextStyle(color: Colors.white),),
+          centerTitle: true,
+          backgroundColor : Color(0xFF19103E),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.more_vert),
+              onPressed: (){},
+            )
+          ],
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 32),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(width: double.infinity,),
+              Icon(Icons.person_2, size:100,),
 
-            SizedBox(height: 30,),
-            Text("Nom Complet",),
+              SizedBox(height: 30,),
+              Text("Nom Complet",),
 
-            SizedBox(height: 50,),
-            TextField(
-                controller: nomCtrl,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                )
-            ),
+              SizedBox(height: 20,),
+              TextField(
+                  controller: nomCtrl,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                  )
+              ),
 
-            SizedBox(height: 30,),
-            Text("Genre",),
+              SizedBox(height: 30,),
+              Text("Genre",),
 
-            SizedBox(height: 50,),
-            GenreSelection(
+              SizedBox(height: 20,),
+              GenreSelection(
                 isHomme: isHommeState,
                 isFemme: isFemmeState,
                 onHommeChanged: (bool? valeur){
@@ -67,14 +67,14 @@ class FormulairePatientState extends State<FormulairePatientPage>{
                 },
               ),
 
-            SizedBox(height: 30,),
-            ElevatedButton(
-              child: Text("Creer"),
-              onPressed: (){},)
-          ],
-        ),
-      )
+              SizedBox(height: 30,),
+              ElevatedButton(
+                child: Text("Creer"),
+                onPressed: (){},)
+            ],
+          ),
+        )
     );
   }
-  
+
 }
